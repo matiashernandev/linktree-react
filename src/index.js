@@ -1,14 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+import { BrowserRouter, Routes, Rout, Route } from "react-router-dom";
+import LoginView from "./routes/LoginView";
+import DashboardView from "./routes/DashboardView";
+import EditProfileView from "./routes/EditProfileView";
+import SingOutView from "./routes/SingOutView";
+import PublicProfileView from "./routes/PublicProfileView";
+import ChooseUserNameView from "./routes/ChooseUserNameView";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="login" element={<LoginView />} />
+            <Route path="dashboard" element={<DashboardView />} />
+            <Route path="dashboard/profile" element={<EditProfileView />} />
+            <Route path="singout" element={<SingOutView />} />
+            <Route path="u/:username" element={<PublicProfileView />} />
+            <Route path="choose-username" element={<ChooseUserNameView />} />
+        </Routes>
+    </BrowserRouter>,
+
+    document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
