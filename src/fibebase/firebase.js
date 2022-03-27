@@ -21,6 +21,7 @@ import {
     setDoc,
     deleteDoc,
 } from "firebase/firestore";
+import { async } from "@firebase/util";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -37,6 +38,57 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
+
+export async function userExist(uid) {
+    const docRef = doc(db, "users", uid);
+    const res = await getDoc(docRef);
+    console.log(res);
+    return res.exists();
+}
+
+export async function existsUsername(username) {
+    const users = [];
+    const docsRef = collection(db, "users");
+    const q = query(docsRef, where("username", "==", username));
+
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc) => {
+        users.push(doc.data());
+    });
+
+    return users.length > 0 ? users[0].uid : null;
+}
+
+export async function registerNewUser(user) {
+    try {
+        const collectionRef = collection(db, "users");
+        const docRef = doc(collectionRef, user.uid);
+
+        await setDoc(docRef, user);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function updateUser(user) {
+    try {
+        const collectionRef = collection(db, "users");
+        const docRef = doc(collectionRef, user.uid);
+        await setDoc(docRef, user);
+    } catch (error) {}
+}
+
+export async function getUserInfo(uid) {
+    try {
+        const docRef = doc(db, "users", uid);
+        const document = await getDoc(docRef);
+
+        return document.data();
+    } catch (error) {
+        console.log(error);
+    }
+}
