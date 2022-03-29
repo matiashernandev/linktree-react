@@ -1,8 +1,3 @@
-import {
-    GoogleAuthProvider,
-    onAuthStateChanged,
-    signInWithPopup,
-} from "firebase/auth";
 import { useEffect, useState } from "react";
 import {
     auth,
@@ -10,7 +5,7 @@ import {
     registerNewUser,
     userExist,
 } from "../fibebase/firebase";
-
+import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 export default function AuthProvider({
@@ -44,7 +39,7 @@ export default function AuthProvider({
                     onUserNotRegistered(user);
                 }
 
-                console.log(user.displayName);
+                //console.log(user.displayName);
             } else {
                 onUserNotLoggedIn();
             }
