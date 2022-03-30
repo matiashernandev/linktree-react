@@ -28,12 +28,12 @@ import { async } from "@firebase/util";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_APIKEY,
-    authDomain: process.env.REACT_APP_AUTHDOMAIN,
-    projectId: process.env.REACT_APP_PROJECTID,
-    storageBucket: process.env.REACT_APP_STORAGEBUCKET,
-    messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
-    appId: process.env.REACT_APP_APPID,
+    apiKey: "AIzaSyAQDB0FB_tgj66ss9vPhV3qHTD_vuXoLB4",
+    authDomain: "treelink-react.firebaseapp.com",
+    projectId: "treelink-react",
+    storageBucket: "treelink-react.appspot.com",
+    messagingSenderId:"991647359898",
+    appId: "1:991647359898:web:9aef2d5d70ea5fe93fd023",
 };
 
 // Initialize Firebase

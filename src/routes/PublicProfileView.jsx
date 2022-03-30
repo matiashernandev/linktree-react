@@ -10,6 +10,9 @@ import PublicLink from "../components/PublicLink";
 import style from "./PublicProfileView.module.css";
 import styleLinks from "../components/PublicLink.module.css";
 
+import DashboardWrapper from "../components/DashboardWrapper"
+
+
 export default function PublicProfileView() {
     const params = useParams();
     const [profile, setProfile] = useState(null);
@@ -56,6 +59,7 @@ export default function PublicProfileView() {
     return (
         /*funciona pero cuando se actualiza se hace mierda todo*/
         /* no andan los styles*/
+<DashboardWrapper>
         <div className={style.profileContainer}>
             <div className={style.profilePicture}>
                 <img src={url} width={100} alt="" />
@@ -66,6 +70,8 @@ export default function PublicProfileView() {
                 <div className={styleLinks.publicLinksContainer}>
                     {profile?.linksInfo.map((link) => (
                         <PublicLink
+                        
+                       
                             key={link.docId}
                             url={link.url}
                             title={link.title}
@@ -74,5 +80,6 @@ export default function PublicProfileView() {
                 </div>
             </div>
         </div>
+        </DashboardWrapper>
     );
 }

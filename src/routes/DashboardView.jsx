@@ -126,6 +126,7 @@ export default function DashboardView() {
                 <div className={styleLinks.linksContainer}>
                     {links.map((link) => (
                         <Link
+                        
                             key={link.docId}
                             docId={link.docId}
                             url={link.url}

@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardWrapper from "../components/DashboardWrapper";
 import AuthProvider from "../components/AuthProvider";
-import { async } from "@firebase/util";
 import {
     getProfilePhotoUrl,
     setUserProfilePhoto,
