@@ -5,7 +5,9 @@ export default function DashboardWrapper({ children }) {
     return (
         <div>
             <nav className={style.nav}>
-                <div className={style.logo}>Logotipo</div>
+                <Link to="/">
+                    <div className={style.logo}>Logotipo</div>
+                </Link>
                 <Link to="/dashboard">Links</Link>
                 <Link to="/dashboard/profile">Profile</Link>
                 <Link to="/signout">Signout</Link>
