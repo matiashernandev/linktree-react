@@ -7,8 +7,9 @@ import { useEffect, useState } from "react";
 import { auth, userExist } from "../fibebase/firebase";
 
 import { useNavigate } from "react-router-dom";
-import { async } from "@firebase/util";
 import AuthProvider from "../components/AuthProvider";
+
+import style from "./LoginView.module.css";
 
 export default function LoginView() {
     const navigate = useNavigate();
@@ -76,26 +77,34 @@ export default function LoginView() {
         setCurrentState(4);
     }
 
-    if (state === 2) {
+    /*    if (state === 2) {
         return <div>Estás autenticado y registrado</div>;
     }
     if (state === 3) {
         return <div>Estás autenticado pero no registrado</div>;
-    }
+    } */
     if (state === 4) {
         return (
-            <div>
-                <button onClick={handleOnClick}>Loggin with Google</button>
+            <div className={style.loginView}>
+                <div>
+                    <h1>Linktree rancio</h1>
+                </div>
+                <button className={style.provider} onClick={handleOnClick}>
+                    Loggin with Google
+                </button>
+                <div>
+                    <p>Estilos en proceso 29/03/22</p>
+                </div>
             </div>
         );
     }
-    if (state === 5) {
+    /*    if (state === 5) {
         return (
             <div>
                 <button onClick={handleOnClick}>Loggin with Google</button>
             </div>
         );
-    }
+    } */
 
     return (
         <AuthProvider

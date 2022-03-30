@@ -1,7 +1,9 @@
+import style from "./PublicLink.module.css";
+
 export default function PublicLink({ url, title }) {
     return (
-        <div>
-            <a href={url}>{title}</a>
-        </div>
+        <a className={style.publicLinkContainer} href={url}>
+            <div>{title}</div>
+        </a>
     );
 }

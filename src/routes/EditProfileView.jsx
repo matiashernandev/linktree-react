@@ -9,6 +9,8 @@ import {
     updateUser,
 } from "../fibebase/firebase";
 
+import style from "./EditProfileView.module.css";
+
 export default function EditProfileView() {
     const navigate = useNavigate();
     const [currentUser, setCurrentUser] = useState({});
@@ -77,18 +79,18 @@ export default function EditProfileView() {
         <DashboardWrapper>
             <div>
                 Edit Profile Info
-                <div>
+                <div className={style.profilePictureContainer}>
                     <div>
                         <img src={profileUrl} width={100} alt="" />
                     </div>
                     <div>
-                        <button onClick={handleOpenFilePicker}>
+                        <button className="btn" onClick={handleOpenFilePicker}>
                             Choose new profile picture
                         </button>
                         <input
+                            className={style.fileInput}
                             ref={fileRef}
                             type="file"
-                            style={{ display: "none" }}
                             onChange={handleOnChangeFile}
                         />
                     </div>

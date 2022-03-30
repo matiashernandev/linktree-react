@@ -19,7 +19,7 @@ ReactDOM.render(
             <Route path="login" element={<LoginView />} />
             <Route path="dashboard" element={<DashboardView />} />
             <Route path="dashboard/profile" element={<EditProfileView />} />
-            <Route path="singout" element={<SingOutView />} />
+            <Route path="signout" element={<SingOutView />} />
             <Route path="u/:username" element={<PublicProfileView />} />
             <Route path="choose-username" element={<ChooseUserNameView />} />
         </Routes>

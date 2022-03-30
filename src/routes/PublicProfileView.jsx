@@ -7,6 +7,9 @@ import {
 } from "../fibebase/firebase";
 import PublicLink from "../components/PublicLink";
 
+import style from "./PublicProfileView.module.css";
+import styleLinks from "../components/PublicLink.module.css";
+
 export default function PublicProfileView() {
     const params = useParams();
     const [profile, setProfile] = useState(null);
@@ -52,14 +55,15 @@ export default function PublicProfileView() {
 
     return (
         /*funciona pero cuando se actualiza se hace mierda todo*/
-        <div>
-            <div>
+        /* no andan los styles*/
+        <div className={style.profileContainer}>
+            <div className={style.profilePicture}>
                 <img src={url} width={100} alt="" />
             </div>
             <div>
                 <h2>{profile?.profileInfo.username}</h2>
                 <h3>{profile?.profileInfo.displayName}</h3>
-                <div>
+                <div className={styleLinks.publicLinksContainer}>
                     {profile?.linksInfo.map((link) => (
                         <PublicLink
                             key={link.docId}

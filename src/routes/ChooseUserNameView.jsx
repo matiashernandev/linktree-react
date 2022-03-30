@@ -2,6 +2,7 @@ import AuthProvider from "../components/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { existsUsername, updateUser } from "../fibebase/firebase";
+import style from "./ChooseUserNameView.module.css";
 
 export default function ChooseUserNameView() {
     const navigate = useNavigate();
@@ -41,7 +42,7 @@ export default function ChooseUserNameView() {
 
     if (state === 3 || state === 5) {
         return (
-            <div>
+            <div className={style.chooseUsernameContainer}>
                 <h1>Bienvenido {currentUser.displayName}</h1>
                 <p>Para terminar el proceso elige un nombre de usuario</p>
                 {state === 5 ? (
@@ -50,10 +51,16 @@ export default function ChooseUserNameView() {
                     ""
                 )}
                 <div>
-                    <input type="text" onChange={handleInputUsername} />
+                    <input
+                        className="input"
+                        type="text"
+                        onChange={handleInputUsername}
+                    />
                 </div>
                 <div>
-                    <button onClick={handleContinue}>Continue</button>
+                    <button className="btn" onClick={handleContinue}>
+                        Continue
+                    </button>
                 </div>
             </div>
         );
@@ -61,7 +68,7 @@ export default function ChooseUserNameView() {
 
     if (state === 6) {
         return (
-            <div>
+            <div className={style.chooseUsernameContainer}>
                 <h1>
                     felicidades manco ya puedes ir al dashboar a crear links!
                 </h1>

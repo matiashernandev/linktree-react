@@ -11,6 +11,9 @@ import {
 } from "../fibebase/firebase";
 import Link from "../components/Link";
 
+import style from "./DashboardView.module.css";
+import styleLinks from "../components/Link.module.css";
+
 export default function DashboardView() {
     const navigate = useNavigate();
     const [currentUser, setCurrentUser] = useState({});
@@ -93,16 +96,34 @@ export default function DashboardView() {
             <div>
                 <h1>Dashboard</h1>
 
-                <form action="" onSubmit={handleOnSubmit}>
+                <form
+                    className={style.entryContainer}
+                    action=""
+                    onSubmit={handleOnSubmit}
+                >
                     <label htmlFor="title">Title</label>
-                    <input type="text" name="title" onChange={handleOnChange} />
+                    <input
+                        className="input"
+                        type="text"
+                        name="title"
+                        onChange={handleOnChange}
+                    />
 
                     <label htmlFor="url">Url</label>
-                    <input type="text" name="url" onChange={handleOnChange} />
+                    <input
+                        className="input"
+                        type="text"
+                        name="url"
+                        onChange={handleOnChange}
+                    />
 
-                    <input type="submit" value="Create new link" />
+                    <input
+                        className="btn"
+                        type="submit"
+                        value="Create new link"
+                    />
                 </form>
-                <div>
+                <div className={styleLinks.linksContainer}>
                     {links.map((link) => (
                         <Link
                             key={link.docId}

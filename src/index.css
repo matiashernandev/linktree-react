@@ -5,6 +5,7 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #f5f6f8;
 }
 
 code {
@@ -49,16 +50,24 @@ code {
     border: none;
     background-color: rgb(13, 110, 184);
     color: white;
-    padding: 15px 15px;
+    padding: 10px 20px;
     border-radius: 3px;
+    margin: 10px 0;
+    min-width: 200px;
 }
 
-.main-container input[type="text"] {
+input[type="text"].input {
     border: solid 1px #ccc;
     border-radius: 3px;
     padding: 8px 10px;
 }
 
-.main-container label {
+label {
     padding-top: 5px;
+}
+
+a {
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
 }
