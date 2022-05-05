@@ -15,8 +15,8 @@ import ChooseUserNameView from "./routes/ChooseUserNameView";
 ReactDOM.render(
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="login" element={<LoginView />} />
+            {/* <Route path="/" element={<App />} /> */}
+            <Route path="/" element={<LoginView />} />
             <Route path="dashboard" element={<DashboardView />} />
             <Route path="dashboard/profile" element={<EditProfileView />} />
             <Route path="signout" element={<SingOutView />} />
